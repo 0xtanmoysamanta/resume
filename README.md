@@ -110,7 +110,7 @@ This resume contains:
 
 # 🚨 **DON'T WAIT - CLICK NOW!** 🚨
 
-## **[>>> VIEW MY LEGENDARY RESUME <<<](0xtanmoysamanta.github.io/resume.html)**
+## **[>>> VIEW MY LEGENDARY RESUME <<<](https://0xtanmoysamanta.github.io/resume)**
 
 *Trust me, you've never seen anything like this before...*
 
