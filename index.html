@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanmay Samanta - The Real Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            background-size: 300% 300%;
+            animation: gradientShift 5s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transform: rotate(-1deg);
+            animation: wobble 3s ease-in-out infinite;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-1deg); }
+            25% { transform: rotate(0.5deg); }
+            75% { transform: rotate(-0.5deg); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .emoji-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 30px;
+            animation: fall 4s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(300px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            border-radius: 15px;
+            text-align: center;
+            transform: rotate(-1deg);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .objective {
+            font-size: 1.1rem;
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px dashed #ffc107;
+            position: relative;
+        }
+
+        .objective::before {
+            content: "📢";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 5px;
+            font-size: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid #ff6b6b;
+            transform: rotate(1deg);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: rotate(-2deg) scale(1.05);
+        }
+
+        .skill-category:nth-child(even) {
+            transform: rotate(-1deg);
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .project {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: "🚀";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 3rem;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .achievement-item {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #f39c12;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-item::before {
+            content: "⭐";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            animation: twinkle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.5; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .mom-section {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px dashed #e74c3c;
+            text-align: center;
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .mom-section::before {
+            content: "👩‍👦";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .disclaimer {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 20px;
+            border-radius: 15px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .disclaimer::before {
+            content: "⚠️";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 5px;
+            font-size: 2rem;
+        }
+
+        .age-highlight {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 30px 0;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% { background: linear-gradient(45deg, #ff6b6b, #4ecdc4); }
+            33% { background: linear-gradient(45deg, #4ecdc4, #45b7d1); }
+            66% { background: linear-gradient(45deg, #45b7d1, #96ceb4); }
+        }
+
+        .footer-meme {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin-top: 40px;
+            font-style: italic;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .content { padding: 20px; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="emoji-rain">
+                <span class="emoji" style="left: 10%; animation-delay: 0s;">💻</span>
+                <span class="emoji" style="left: 30%; animation-delay: 1s;">🚀</span>
+                <span class="emoji" style="left: 50%; animation-delay: 2s;">⚡</span>
+                <span class="emoji" style="left: 70%; animation-delay: 0.5s;">🔥</span>
+                <span class="emoji" style="left: 90%; animation-delay: 1.5s;">⭐</span>
+            </div>
+            <h1>TANMAY SAMANTA</h1>
+            <p class="subtitle">17-Year-Old Tech Wizard Who Mom Still Doesn't Believe In 🤷‍♂️</p>
+            <div class="contact-info">
+                <div class="contact-item">📧 tanmoy-samanta@mail.realshit.space (Yes, that's a real domain)</div>
+                <div class="contact-item">📱 8420934593 (Call me, I'm awesome)</div>
+                <div class="contact-item">📍 Kolkata, WB (Still living with parents who roast me)</div>
+                <div class="contact-item">💻 <a href="https://github.com/0xtanmoysamanta" target="_blank">GitHub: Where the magic happens</a></div>
+                <div class="contact-item">💼 <a href="https://linkedin.com/in/tanmoy-samanta" target="_blank">LinkedIn: 200+ connections and counting!</a></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="age-highlight">
+                🎂 PLOT TWIST: I'M ONLY 17 AND ALREADY KNOW MORE THAN YOUR COLLEGE CS GRADUATE 🎂
+            </div>
+
+            <section class="section">
+                <h2>🎯 Career Objective (AKA My Master Plan)</h2>
+                <div class="objective">
+                    Look, I'm 17 and I've already compiled a Linux kernel while you were probably still figuring out how to use Windows properly. I want a job where I can flex my insane technical skills, make some money, and prove to my mom that those late nights weren't just "playing games on the computer." 
+                    <br><br>
+                    <strong>TL;DR:</strong> Give me backend development, cybersecurity, or IoT projects and watch me make magic happen! 🎩✨
+                </div>
+            </section>
+
+            <div class="mom-section">
+                <h2 style="background: none; transform: none; color: #e74c3c; padding: 0;">👩‍👦 Mom's Review Section 👩‍👦</h2>
+                <p><strong>Mom's Rating:</strong> "Beta, computer mein kya karta rehta hai?" (Mom, what are you doing on the computer?) ⭐☆☆☆☆</p>
+                <p><strong>Dad's Concern:</strong> "You gonna raise kids without marriage" (Apparently my career path is questionable) 🤦‍♂️</p>
+                <p><strong>Reality Check:</strong> I got 76% in 10th grade WHILE building neural networks. Try me! 💪</p>
+            </div>
+
+            <section class="section">
+                <h2>💻 Technical Skills (That Actually Matter)</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🐍 Languages I Speak Fluently</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python (My BFF)</span>
+                            <span class="skill-tag">C/C++ (Low-level wizard)</span>
+                            <span class="skill-tag">JavaScript (Web magic)</span>
+                            <span class="skill-tag">HTML/CSS (Pretty things)</span>
+                            <span class="skill-tag">Bash (Terminal ninja)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🌐 Web Stuff I Rock At</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flask (Backend boss)</span>
+                            <span class="skill-tag">REST APIs (Data whisperer)</span>
+                            <span class="skill-tag">GitHub Pages (Show-off platform)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🗄️ Database & OS Mastery</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL (Cloud guru)</span>
+                            <span class="skill-tag">SQLite (Local legend)</span>
+                            <span class="skill-tag">Linux (Kernel compiler!)</span>
+                            <span class="skill-tag">Android (Mobile hacker)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>☁️ Cloud & DevOps Powers</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS (Amazon's playground)</span>
+                            <span class="skill-tag">Linode (VPS master)</span>
+                            <span class="skill-tag">Docker (Container wizard)</span>
+                            <span class="skill-tag">nginx (Web server pro)</span>
+                            <span class="skill-tag">Cloudflare (Speed demon)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🤖 AI/ML Superpowers</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">TensorFlow (Neural net builder)</span>
+                            <span class="skill-tag">NumPy (Math magician)</span>
+                            <span class="skill-tag">Pandas (Data tamer)</span>
+                            <span class="skill-tag">OpenCV (Computer vision)</span>
+                            <span class="skill-tag">Matplotlib (Graph artist)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🔧 Hardware Hacking Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Raspberry Pi (Mini computer god)</span>
+                            <span class="skill-tag">Arduino (Electronics wizard)</span>
+                            <span class="skill-tag">NodeMCU (WiFi whisperer)</span>
+                            <span class="skill-tag">LUKS Encryption (Security beast)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>🚀 Projects That'll Blow Your Mind</h2>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h3>🧠 CNN That Actually Works (84% Accuracy!)</h3>
+                        <p><strong>What I Did:</strong> Built a neural network that can read handwritten digits better than your doctor reads prescriptions</p>
+                        <p><strong>Cool Factor:</strong> Used Google Colab with T4 GPU because I'm not messing around with slow computers</p>
+                        <p><strong>Mom's Reaction:</strong> "Beta, homework kar lo" (Son, do your homework) 🤦‍♂️</p>
+                    </div>
+                    
+                    <div class="project">
+                        <h3>🌐 IoT Mesh Network (10 NodeMCUs Army!)</h3>
+                        <p><strong>Epic Scale:</strong> Connected 10 NodeMCUs in a mesh network like I'm building Skynet</p>
+                        <p><strong>Master Plan:</strong> One master node rules them all through WiFi, with RemoteXY for ultimate control</p>
+                        <p><strong>Real Talk:</strong> This is cooler than anything my classmates have ever built</p>
+                    </div>
+                    
+                    <div class="project">
+                        <h3>🌤️ Weather API That Actually Updates</h3>
+                        <p><strong>Backend Beast:</strong> Flask API that fetches real-time weather data faster than you can say "umbrella"</p>
+                        <p><strong>Testing Game Strong:</strong> Used Postman like a pro to make sure everything works perfectly</p>
+                        <p><strong>Practical AF:</strong> Because who doesn't need to know if it's raining?</p>
+                    </div>
+                    
+                    <div class="project">
+                        <h3>🖥️ Personal Server Farm (At Home!)</h3>
+                        <p><strong>Hardware Setup:</strong> Raspberry Pi Zero 2 W + Mini PC = My personal cloud empire</p>
+                        <p><strong>Services Running:</strong> Static sites, REST APIs, systemd services like a real system admin</p>
+                        <p><strong>Security Level:</strong> LUKS encryption because I take data protection seriously</p>
+                    </div>
+                    
+                    <div class="project">
+                        <h3>🕰️ Tkinter Clock (Because Why Not?)</h3>
+                        <p><strong>Simple But Effective:</strong> Digital clock in Python that actually looks good</p>
+                        <p><strong>Learning Flex:</strong> Sometimes you gotta start somewhere, right?</p>
+                        <p><strong>Time Well Spent:</strong> Pun intended 😎</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>🏆 Achievements That Make Me Legend</h2>
+                <div class="achievement-item">
+                    <strong>🎓 Academic Balancing Act:</strong> Scored 76% in Class 10 while simultaneously building neural networks and compiling kernels. Try multitasking THAT!
+                </div>
+                <div class="achievement-item">
+                    <strong>💻 Kernel Compilation King:</strong> Successfully compiled a Linux kernel in Class 11. Yes, FROM SOURCE. While my friends were struggling with basic programming.
+                </div>
+                <div class="achievement-item">
+                    <strong>🤖 CEO Recognition:</strong> Got a personal reply from SUNO AI CEO for my project in Class 10. That's right, a CEO replied to a 15-year-old me!
+                </div>
+                <div class="achievement-item">
+                    <strong>🌐 LinkedIn Networking Pro:</strong> Built 200+ professional connections because I understand the power of networking (unlike my peers who think LinkedIn is for old people)
+                </div>
+                <div class="achievement-item">
+                    <strong>☁️ Multi-Cloud Master:</strong> Active across AWS, Linode, GCP, nginx - basically I'm friends with all the cloud providers
+              </div>
+                <div class="achievement-item">
+                    <strong>💰 Anti-Scammer Hero:</strong> Scammed a scammer because justice and also because I can
+                </div>
+                <div class="achievement-item">
+                    <strong>📚 Business Knowledge Beast:</strong> Read Rich Dad Poor Dad and understand VCs, startups, equity firms, and crypto while still in high school
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>📚 Education (The Official Stuff)</h2>
+                <div class="disclaimer">
+                    <h3>Class 12 Student at KNV (Expected 2024-2026)</h3>
+                    <p><strong>Official Subjects:</strong> Computer Science, Physics, Psychology, Self-help (because I believe in personal growth)</p>
+                    <p><strong>Unofficial Subjects:</strong> Advanced System Administration, Cloud Computing, Neural Networks, Business Strategy</p>
+                    <p><strong>Life Philosophy:</strong> STEM × TRADE × LITERATURE = Complete Human Being</p>
+                    <p><strong>Reality:</strong> Learning more outside school than inside, but hey, that's how legends are made! 🎓</p>
+                </div>
+            </section>
+
+            <div class="footer-meme">
+                <h3>💡 Fun Fact</h3>
+                <p>"I'm 17 and already know more about servers than most IT departments. Mom still asks me to fix the TV remote." 📺</p>
+                <br>
+                <p><strong>Hire me before my competitors figure out what I'm capable of! 🚀</strong></p>
+                <br>
+                <p><em>P.S. - Mom, if you're reading this, I told you those weren't just games! 😘</em></p>
+            </div>
+        </main>
+    </div>
+</body>
+  </html>
